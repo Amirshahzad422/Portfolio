@@ -31,20 +31,38 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
     }
   }, [link]);
 
+  const imageContainerStyle = {
+    width: imgSize,
+    height: imgSize,
+    borderRadius: '50%',
+    overflow: 'hidden',
+    border: '3px solid #6c757d',
+    margin: '0 auto',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f8f9fa'
+  };
 
+  const imageStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center'
+  };
 
   return (
     <Jumbotron id="aboutme" className="m-0">
       <div className="container row">
         <div className="col-5 d-none d-lg-block align-self-center">
           {showPic && (
-            <img
-              className="border border-secondary rounded-circle"
-              src={profilePicUrl}
-              alt="profilepicture"
-              width={imgSize}
-              height={imgSize}
-            />
+            <div style={imageContainerStyle}>
+              <img
+                style={imageStyle}
+                src={profilePicUrl}
+                alt="profilepicture"
+              />
+            </div>
           )}
         </div>
         <div className={`col-lg-${showPic ? "7" : "12"}`}>
